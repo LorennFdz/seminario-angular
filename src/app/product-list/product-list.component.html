@@ -1,0 +1,17 @@
+<div class="subtitulo">
+    <h2>Algunos de nuestros productos</h2>
+    <p>En Stock con Entrega Inmediata</p>
+</div>
+<div class="imgcelus">
+    <div *ngFor="let product of products" [ngClass]="{'clearance': product.clearance}">
+        <div class="textimages">
+            <img width="90" class="img-thumbnail" [src]="product.image" [alt]="product.name">
+            <div>
+                <a class="linkimages" [routerLink]="['/products']">{{product.name | uppercase}} - {{product.type}}</a>
+                <p>{{product.price | currency:'USD':'code'}}.-<span class="badge text-bg-warning" *ngIf="product.stock==0">SIN STOCK</span></p>
+                <app-input-integer [(quantity)]="product.quantity" [max]="product.stock" *ngIf="product.stock"></app-input-integer>
+                Cant: {{product.quantity}}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+.titulo {
+    background-image: url(../assets/images/inicio/fondotitulo.jpg);
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    justify-content: center;
+}
+.titulo h1 {
+    font-size: 180%;
+    margin-right: 5%;
+}
+.titulo img {
+    border-radius: 50%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+.subtitulo {
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-style: italic;
+    display: block;
+}
+.subtitulo h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.subtitulo p {
+    margin-top: 1%;
+    font-style: oblique;
+}
+.barraprincipal {
+    box-shadow: 0.438em 0.813em 2.313em rgb(0, 0, 0);
+    background-color: #0d6efd;
+}
+.barraprincipal ul {
+    display: flex;
+    color: white;
+    align-items: center;
+    padding: 0.5% 0;
+}
+.barraprincipal ul li {
+    padding-left: 3%;
+    padding-right: 3%;
+    list-style: none;
+}
+.barraprincipal a, footer a {
+    text-decoration: none;
+    color: white;
+}
+.barraprincipal a:hover, .linkimages:hover {
+    color: blue;
+}
+footer {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 2%;
+    padding: 1% 0 1% 2%;
+    border-radius: 0.625em;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.767);
+}
+footer a:hover{
+    color: rgb(0, 217, 255);
+}
+.logoredes {
+    border-radius: 0.35em;
+}
