@@ -10,7 +10,6 @@
                 <a class="linkimages" [routerLink]="['/products']">{{product.name | uppercase}} - {{product.type}}</a>
                 <p>{{product.price | currency:'USD':'code'}}.-<span class="badge text-bg-warning" *ngIf="product.stock==0">SIN STOCK</span></p>
                 <app-input-integer [(quantity)]="product.quantity" [max]="product.stock" *ngIf="product.stock"></app-input-integer>
-                Cant: {{product.quantity}}
             </div>
         </div>
     </div>
