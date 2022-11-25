@@ -2,8 +2,25 @@
     <h3>Carrito de Compras</h3>
 </div>
 
-<ul>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Nombre</td>
+            <td>Cantidad</td>
+            <td>Precio</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of (cartList$ | async)">
+            <td >{{product.name}}</td>
+            <td>{{product.quantity}}</td>
+            <td>{{product.price | currency:'USD ':'code'}}.-</td>
+        </tr>
+    </tbody>
+</table>
+
+<!--<ul>
     <li class="item-cart" *ngFor="let product of (cartList$ | async)">
         {{product.name}}: {{product.quantity}}
     </li>
-</ul>
+</ul> -->
