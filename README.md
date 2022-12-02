@@ -1,3 +1,8 @@
+[stackblitz]   https://stackblitz.com/github/LorennFdz/seminario-angular
+Para visualizar mejor la página, hacer click en "Open in New Tab" en la parte superior derecha.
+[GitHub]   https://github.com/LorennFdz/seminario-angular
+
+
 # CellshopTandil
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
