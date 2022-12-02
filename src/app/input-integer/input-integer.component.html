@@ -1,9 +1,7 @@
 <div class="input-group justify-content-center">
-    <div class="input-group-prepend">
+    <div>
         <button class="btn btn-primary btn-sm" (click)="downQuantity()">-</button>
-    </div>
-    <input class="text-center" type="text" [(ngModel)]="quantity" (keyup)="changeQuantity($event)">
-    <div class="input-group-append">
+        <input class="text-center" type="text" [(ngModel)]="quantity">
         <button class="btn btn-primary btn-sm" (click)="upQuantity()">+</button>
     </div>
 </div>

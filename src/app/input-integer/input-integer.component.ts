@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Product } from '../product-list/product';
 
 @Component({
   selector: 'app-input-integer',
@@ -28,13 +27,4 @@ export class InputIntegerComponent implements OnInit {
       this.quantityChange.emit(this.quantity);
     }
   }
-  changeQuantity(event: any): void {
-    if((0 < event.key) && (event.key < 9)){
-      this.quantityChange.emit(this.quantity);
-    }
-    else{
-      event.preventDefault();
-    }
-  }
-
 }

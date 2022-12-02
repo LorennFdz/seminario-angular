@@ -3,16 +3,17 @@
     <p>En Stock con Entrega Inmediata</p>
 </div>
 <div class="imgcelus">
-    <div *ngFor="let product of products" >
+    <div *ngFor="let product of products">
         <div class="textimages">
-            <img width="90" class="img-thumbnail" [src]="product.image" [alt]="product.name">
+            <img width="90" [src]="product.image" [alt]="product.name">
             <div>
-                <a class="linkimages" [routerLink]="['/products']">{{product.name | uppercase}} </a> <p> {{product.type}} <br>
-                {{product.price | currency:'USD ':'code'}}.-
-                <span *ngIf="product.clearance && product.stock!=0" class="badge rounded-pill text-bg-success">OFERTA</span>
+                <a class="linkimages" [routerLink]="['/products']">{{product.name | uppercase}}</a>
+                <p>{{product.type}} <br> {{product.price | currency:'USD ':'code'}}.-
+                <span *ngIf="product.clearance && product.stock!=0" class="badge rounded-pill text-sale">OFERTA</span>
                 <span class="badge rounded-pill text-bg-warning" *ngIf="product.stock==0">SIN STOCK</span></p>
                 <app-input-integer [(quantity)]="product.quantity" [max]="product.stock" *ngIf="product.stock"></app-input-integer>
-                <button class="btn btn-primary btn-sm" (click)="addToCart(product)" *ngIf="product.stock!=0">Agregar al carrito</button>
+                <p class="stock-available" *ngIf="product.stock!=0">({{product.stock}} disponibles)</p>
+                <button class="btn btn-primary btn-sm" (click)="addToCart(product)" *ngIf="product.stock!=0 && product.quantity>0">Agregar al carrito</button>
             </div>
         </div>
     </div>
