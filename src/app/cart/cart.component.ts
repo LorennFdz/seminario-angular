@@ -22,10 +22,4 @@ export class CartComponent implements OnInit {
   removeToCart(id: any, product: Product){
     this.cart.removeToCart(id, product);
   }
-  //upQuantity(product: Product): void {
-  //  this.cart.upQuantity(product);
-  //}
-  //downQuantity(product: Product): void {
-  //  this.cart.downQuantity(product);
-  //}
 }

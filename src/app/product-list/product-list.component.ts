@@ -30,8 +30,6 @@ export class ProductListComponent implements OnInit {
     
     });
     this.cart.product.subscribe(resp => (this.removeToCart(resp)));
-
-    
   }
   
   addToCart(product: Product): void{

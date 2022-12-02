@@ -16,7 +16,6 @@
             <tr *ngFor="let product of (cartList$ | async)">
                 <td>{{product.name}} - {{product.type}}</td>
                 <td class="text-end">{{product.quantity}}</td>
-                <!--<i class="fa-sharp fa-solid fa-minus" (click)="downQuantity(product)"></i>  <i (click)="upQuantity(product)" class="fa-sharp fa-solid fa-plus"></i>-->
                 <td>{{product.price | currency:'USD ':'code'}}.-</td>
                 <td><i class="fa-solid fa-trash-can" (click)="removeToCart(product.id, product)"></i></td>
             </tr>
