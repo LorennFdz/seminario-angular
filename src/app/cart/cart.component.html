@@ -28,6 +28,6 @@
         </tbody>
     </table>
     <div class="text-end">
-        <button class="btn btn-primary" *ngIf="total()!=0">Comprar</button>
+        <button class="btn btn-primary" (click)="emptyCart()" *ngIf="total()!=0">Comprar</button>
     </div>
 </div>

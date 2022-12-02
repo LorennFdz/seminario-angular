@@ -22,4 +22,7 @@ export class CartComponent implements OnInit {
   removeToCart(id: any, product: Product){
     this.cart.removeToCart(id, product);
   }
+  emptyCart(){
+    return this.cart.emptyCart();
+  }
 }

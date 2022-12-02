@@ -47,4 +47,8 @@ export class ProductCartService {
   getCart(){
     return this._cartList;
   }
+
+  emptyCart(){
+    this._cartList.splice(0, this._cartList.length);
+  }
 }

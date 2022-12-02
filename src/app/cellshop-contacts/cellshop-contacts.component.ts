@@ -45,6 +45,6 @@ export class CellshopContactsComponent {
     this.msg = true;
     setTimeout(() => {
       this.msg = false;
-    }, 10000);
+    }, 5000);
   }
 }
