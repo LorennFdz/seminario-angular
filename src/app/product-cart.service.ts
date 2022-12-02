@@ -16,7 +16,6 @@ export class ProductCartService {
   cartList: BehaviorSubject<Product[]> = new BehaviorSubject(this._cartList);
   
   @Output() product: EventEmitter<Product> = new EventEmitter();
-  //@Output() quantityChange: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() { }
 
@@ -43,5 +42,9 @@ export class ProductCartService {
     let index = this._cartList.findIndex(i => i.id === id);
     this._cartList.splice(index, 1);
     this.product.emit(product);
+  }
+
+  getCart(){
+    return this._cartList;
   }
 }

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { concatAll, debounce, debounceTime } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductDataService } from '../product-data.service';
 
 @Component({
@@ -11,6 +10,7 @@ import { ProductDataService } from '../product-data.service';
 export class CellshopContactsComponent {
   form!: FormGroup;
   msg = false;
+  error = false;
   product = [];
   constructor(
     private formBuilder: FormBuilder,
@@ -23,8 +23,7 @@ export class CellshopContactsComponent {
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      id: ['',  [Validators.required]],
-      name: ['',  [Validators.required]],
+      name: ['', [Validators.required]],
       surname: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       message: ['', [Validators.required, Validators.maxLength(200)]],
@@ -33,17 +32,19 @@ export class CellshopContactsComponent {
 
   addContacts(event: Event) {
     event.preventDefault();
-    if(!this.form.valid){
-      //this.productDataService.addContacts(this.form);
+    if(this.form.valid){
+      this.productDataService.addContacts(this.form);
       this.form.reset();
+    } else {
+      this.msg = false;
+      this.error = true;
     }
   }
 
   msgSend(){
     this.msg = true;
+    setTimeout(() => {
+      this.msg = false;
+    }, 10000);
   }
-
-  //addProducts(){
-  //  this.productDataService.addProducts();
-  //}
 }

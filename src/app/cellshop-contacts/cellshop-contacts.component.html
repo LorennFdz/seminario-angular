@@ -1,15 +1,15 @@
-<form class="form" [formGroup]="form" novalidate (ngSubmit)="addContacts($event)">
+<form class="form" [formGroup]="form" (ngSubmit)="addContacts($event)">
     <div class="inputs">
         <h2>¡Dejanos tu mensaje!</h2>
-        <!--<input type="hidden" formControlName="id">--> 
         <input class="controls" type="text" formControlName="name" placeholder="Ingrese su Nombre"/>
         <input class="controls" type="text" formControlName="surname" placeholder="Ingrese su Apellido"/>
         <input class="controls" type="email" formControlName="email" placeholder="Ingrese su Email"/>
-        <textarea class="controls" formControlName="message" cols="30" rows="3" placeholder="Escribinos tus dudas"></textarea>
+        <textarea class="controls" formControlName="message" cols="30" rows="3" placeholder="Ingrese su mensaje"></textarea>
         <div>
-            <p *ngIf="msg">Los datos se enviaron correctamente!</p>
+            <p *ngIf="msg">¡Los datos se enviaron correctamente!</p>
+            <p *ngIf="error">Error al enviar los datos, por favor intente nuevamente.</p>
         </div>
-        <button class="button" (click)="msgSend()" type="submit">Enviar</button>
-        <!--<button class="button" (click)="addProducts()" type="submit">Enviar</button>-->
+        <button class="button" (click)="msgSend()" [disabled]="form.invalid" type="submit">Enviar</button>
+        <div><p *ngIf="form.invalid && !msg">Debe completar todos los campos.</p></div>
     </div>
 </form>

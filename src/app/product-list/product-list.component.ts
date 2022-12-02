@@ -12,14 +12,26 @@ import { Product } from './product';
 export class ProductListComponent implements OnInit {
   
   products: Product[] = [];
-
+  cartList: Product[] = [];
   constructor(
     private cart: ProductCartService,
     private productDataService: ProductDataService) { }
   
   ngOnInit(): void {
-    this.productDataService.getAll().subscribe(products => this.products = products);
+    this.cartList = this.cart.getCart();
+
+    this.productDataService.getAll().subscribe(products => {
+      this.products = products;
+      
+      for (let i = 0; i < this.products.length; i++) {
+        let quantity = this.quantityProductsInCart(this.products[i]);
+        this.products[i].stock = this.products[i].stock - quantity;
+      }
+    
+    });
     this.cart.product.subscribe(resp => (this.removeToCart(resp)));
+
+    
   }
   
   addToCart(product: Product): void{
@@ -31,5 +43,13 @@ export class ProductListComponent implements OnInit {
   removeToCart(product: Product){
     let item = this.products.find((v1) => v1.id == product.id)!;
     item.stock += product.quantity;
+  }
+  quantityProductsInCart(product: Product): number{
+    for (let i = 0; i < this.cartList.length; i++) {
+      if(product.type == this.cartList[i].type){
+        return this.cartList[i].quantity;
+      }
+    }
+    return 0;
   }
 }
